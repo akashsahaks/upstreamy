@@ -1,11 +1,15 @@
 {
-  "name": "upstreamy",
-  "version": "1.0.0",
-  "description": "streaming and chatting backend",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "author": "akash-sah-aks",
-  "license": "ISC"
+    "name": "upstreamy",
+    "version": "1.0.0",
+    "description": "A Backend for Streaming and Chatting application",
+    "type": "module",
+    "main": "index.js",
+    "scripts": {
+        "dev": "nodemon src/index.js"
+    },
+    "author": "akash-sah-aks",
+    "license": "ISC",
+    "devDependencies": {
+        "nodemon": "^3.0.3"
+    }
 }
