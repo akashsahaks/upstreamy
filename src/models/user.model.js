@@ -54,7 +54,7 @@ userSchema.pre("save", async function (next) {
    if (!this.isModified("password")) return next();
 
    let saltRound = 10;
-   this.password = bcrypt.hash(this.password, saltRound);
+   this.password = await bcrypt.hash(this.password, saltRound);
    next();
 });
 
