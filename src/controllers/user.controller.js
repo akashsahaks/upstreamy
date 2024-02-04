@@ -157,8 +157,8 @@ const logoutUser = asyncHandler(async (req, res) => {
    await User.findByIdAndUpdate(
       req.user._id,
       {
-         $set: {
-            refreshToken: undefined,
+         $unset: {
+            refreshToken: 1,
          },
       },
       {
@@ -246,7 +246,7 @@ const getCurrentUser = asyncHandler(async (req, res) => {
       );
 });
 
-const updateAccoutnDetails = asyncHandler(async (req, res) => {
+const updateAccountDetails = asyncHandler(async (req, res) => {
    const { fullName, email } = req.body;
 
    if (!fullName || !email) {
@@ -362,7 +362,7 @@ const getUserChannelProfile = asyncHandler(async (req, res) => {
       {
          $addFields: {
             subscribersCount: {
-               $side: "$subscribers",
+               $size: "$subscribers",
             },
             channelsSubscribedToCount: {
                $size: "$subscribedTo",
@@ -462,7 +462,7 @@ export {
    refreshAccessToken,
    changeCurrentPassword,
    getCurrentUser,
-   updateAccoutnDetails,
+   updateAccountDetails,
    updateUserAvatar,
    updateUserCoverImage,
    getUserChannelProfile,
